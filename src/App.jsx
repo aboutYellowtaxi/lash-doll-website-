@@ -7,6 +7,7 @@ import Services from './components/Services'
 import WhyPMU from './components/WhyPMU'
 import Portfolio from './components/Portfolio'
 import VideoReel from './components/VideoReel'
+import HorizontalScroll from './components/HorizontalScroll'
 import About from './components/About'
 import Testimonials from './components/Testimonials'
 import ConsultationCTA from './components/ConsultationCTA'
@@ -54,6 +55,7 @@ export default function App() {
         <WhyPMU />
         <Portfolio />
         <VideoReel />
+        <HorizontalScroll />
         <About />
         <Testimonials />
         <ConsultationCTA />

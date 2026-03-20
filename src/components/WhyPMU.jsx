@@ -1,9 +1,42 @@
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
+
+function AnimatedCounter({ target, suffix = '' }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+
+  useEffect(() => {
+    if (!inView) return
+    const isDecimal = String(target).includes('.')
+    const duration = 1400
+    const steps = 60
+    const interval = duration / steps
+    let current = 0
+    const increment = target / steps
+    const timer = setInterval(() => {
+      current += increment
+      if (current >= target) {
+        setCount(target)
+        clearInterval(timer)
+      } else {
+        setCount(isDecimal ? parseFloat(current.toFixed(1)) : Math.floor(current))
+      }
+    }, interval)
+    return () => clearInterval(timer)
+  }, [inView, target])
+
+  return (
+    <span ref={ref}>
+      {typeof target === 'string' ? target : count}{suffix}
+    </span>
+  )
+}
 
 const stats = [
-  { value: '2–3 años', label: 'de duración promedio' },
-  { value: 'Sin dolor', label: 'con anestesia tópica' },
-  { value: '100% natural', label: 'resultado a medida' },
+  { display: null, raw: '2–3',  suffix: ' años', label: 'de duración promedio' },
+  { display: null, raw: '0',    suffix: ' dolor', label: 'con anestesia tópica', isText: 'Sin' },
+  { display: null, raw: '100',  suffix: '%', label: 'resultado a medida', isText: null },
 ]
 
 export default function WhyPMU() {
@@ -40,23 +73,33 @@ export default function WhyPMU() {
           </motion.p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
-            {stats.map((s, i) => (
+            {[
+              { value: '2–3 años', label: 'de duración promedio', num: null },
+              { value: null, label: 'con anestesia tópica', num: 0, prefix: 'Sin', suffix: ' dolor' },
+              { value: null, label: 'resultado a medida', num: 100, prefix: '', suffix: '% natural' },
+            ].map((s, i) => (
               <motion.div
-                key={s.value}
-                initial={{ opacity: 0, x: -20 }}
+                key={i}
+                initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.12, duration: 0.5 }}
+                transition={{ delay: i * 0.13, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 style={{ borderLeft: '2px solid var(--accent)', paddingLeft: '1.5rem' }}
               >
                 <div style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: '2rem',
+                  fontSize: '2.2rem',
                   fontWeight: 400,
                   color: 'var(--bone)',
                   lineHeight: 1,
                 }}>
-                  {s.value}
+                  {s.value ? s.value : (
+                    <>
+                      {s.prefix}{s.num !== null && (
+                        <CountUp from={0} to={s.num} />
+                      )}{s.suffix}
+                    </>
+                  )}
                 </div>
                 <div style={{
                   fontFamily: 'var(--font-body)',
@@ -74,10 +117,10 @@ export default function WhyPMU() {
 
         {/* Right: copy */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.6 }}
+          transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 style={{
             fontFamily: 'var(--font-display)',
@@ -116,6 +159,7 @@ export default function WhyPMU() {
             href="https://api.whatsapp.com/send?phone=541133436809"
             target="_blank"
             rel="noopener noreferrer"
+            data-cursor-label="CONSULTAR"
             style={{
               display: 'inline-block',
               marginTop: '2rem',
@@ -144,4 +188,26 @@ export default function WhyPMU() {
       `}</style>
     </section>
   )
+}
+
+function CountUp({ from, to }) {
+  const [val, setVal] = useState(from)
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+
+  useEffect(() => {
+    if (!inView) return
+    const duration = 1600
+    const steps = 60
+    const step = (to - from) / steps
+    let cur = from
+    const t = setInterval(() => {
+      cur += step
+      if (cur >= to) { setVal(to); clearInterval(t) }
+      else setVal(Math.floor(cur))
+    }, duration / steps)
+    return () => clearInterval(t)
+  }, [inView, from, to])
+
+  return <span ref={ref}>{val}</span>
 }
