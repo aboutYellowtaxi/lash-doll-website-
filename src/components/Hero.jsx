@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import MagneticButton from './MagneticButton'
+import { img } from '../utils/img'
 
 export default function Hero() {
   const ref = useRef(null)
@@ -219,7 +220,7 @@ export default function Hero() {
             overflow: 'hidden',
           }}>
             <motion.img
-              src="/images/hero-eyebrows.jpg"
+              src={img('images/hero-eyebrows.jpg')}
               alt="Microblading resultado natural — Lash Doll"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
               whileHover={{ scale: 1.04 }}

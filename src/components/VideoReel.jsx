@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { img } from '../utils/img'
 
 export default function VideoReel() {
   return (
@@ -31,9 +32,9 @@ export default function VideoReel() {
           gap: '1.5rem',
         }} className="video-grid">
           {[
-            { src: '/images/lash-lifting-2.mp4', label: 'Lash Lifting · Proceso' },
-            { src: '/images/lash-lifting.mp4', label: 'Lash Lifting · Resultado' },
-            { src: '/images/labios-video.mp4', label: 'Micropigmentación de Labios' },
+            { src: img('images/lash-lifting-2.mp4'), label: 'Lash Lifting · Proceso' },
+            { src: img('images/lash-lifting.mp4'), label: 'Lash Lifting · Resultado' },
+            { src: img('images/labios-video.mp4'), label: 'Micropigmentación de Labios' },
           ].map((v, i) => (
             <motion.div
               key={i}

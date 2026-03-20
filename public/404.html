@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lash Doll Studio</title>
+  <script>
+    // GitHub Pages SPA redirect trick
+    // Converts /repo/path/to/page to /repo/?/path/to/page
+    var seg = 1;
+    var l = window.location;
+    l.replace(
+      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      l.pathname.split('/').slice(0, 1 + seg).join('/') + '/?/' +
+      l.pathname.slice(1).split('/').slice(seg).join('/').replace(/&/g, '~and~') +
+      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash
+    );
+  </script>
+</head>
+<body></body>
+</html>

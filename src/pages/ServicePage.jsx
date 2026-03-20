@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import WhatsAppFAB from '../components/WhatsAppFAB'
+import { img } from '../utils/img'
 
 const WA = 'https://api.whatsapp.com/send?phone=541133436809'
 
@@ -35,7 +36,7 @@ export default function ServicePage({ meta, hero, intro, process, results, faq, 
         alignItems: 'flex-end', overflow: 'hidden', background: 'var(--bg)',
       }}>
         <img
-          src={hero.img}
+          src={img(hero.img.replace(/^\//, ''))}
           alt={hero.alt}
           style={{
             position: 'absolute', inset: 0, width: '100%', height: '100%',
@@ -237,17 +238,17 @@ export default function ServicePage({ meta, hero, intro, process, results, faq, 
               Resultados reales
             </motion.h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', background: 'rgba(212,175,55,0.06)' }} className="sp-results-grid">
-              {results.images.map((img, i) => (
+              {results.images.map((ri, i) => (
                 <motion.div key={i} {...fadeUp(i * 0.08)} style={{ aspectRatio: '3/4', position: 'relative', overflow: 'hidden' }}>
                   <motion.img
-                    src={img.src} alt={img.alt}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: img.pos || 'center', display: 'block' }}
+                    src={img(ri.src.replace(/^\//, ''))} alt={ri.alt}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: ri.pos || 'center', display: 'block' }}
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
                   />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,8,8,0.6) 0%, transparent 55%)' }} />
                   <p style={{ position: 'absolute', bottom: '1rem', left: '1rem', fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '0.75rem', color: 'rgba(240,237,232,0.7)' }}>
-                    {img.alt}
+                    {ri.alt}
                   </p>
                 </motion.div>
               ))}
@@ -347,7 +348,7 @@ export default function ServicePage({ meta, hero, intro, process, results, faq, 
           </div>
         </div>
         <div style={{ position: 'relative', overflow: 'hidden' }}>
-          <img src="/images/valeria-studio.png" alt="Valeria Ambuca — Lash Doll Studio"
+          <img src={img('images/valeria-studio.png')} alt="Valeria Ambuca — Lash Doll Studio"
             style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
           />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, var(--surface) 0%, transparent 30%)' }} />

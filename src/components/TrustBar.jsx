@@ -1,25 +1,26 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { img } from '../utils/img'
 
 const services = [
   {
     name: 'Microblading',
     desc: 'Pelo a pelo · Resultado ultra natural',
-    img: '/images/result-cejas-mb-1.jpg',
+    img: img('images/result-cejas-mb-1.jpg'),
     pos: 'center center',
     to: '/microblading',
   },
   {
     name: 'PMU de Labios',
     desc: 'Color permanente · Labios definidos',
-    img: '/images/result-labios-pmu-1.jpg',
+    img: img('images/result-labios-pmu-1.jpg'),
     pos: 'center center',
     to: '/pmu-labios',
   },
   {
     name: 'Lash Lifting',
     desc: 'Rizadas y elevadas · Sin extensiones',
-    img: '/images/result-lifting-1.jpg',
+    img: img('images/result-lifting-1.jpg'),
     pos: 'center center',
     to: '/lash-lifting',
   },

@@ -1,12 +1,13 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { img } from '../utils/img'
 
 const stages = [
   {
     service: 'Microblading',
     sub: 'Pelo a pelo · Resultado natural',
-    before: '/images/cejas-antes.jpg',
-    after: '/images/cejas-despues.jpg',
+    before: img('images/cejas-antes.jpg'),
+    after: img('images/cejas-despues.jpg'),
     beforePos: 'center top',
     afterPos: 'center top',
     stat: '12–18 meses',
@@ -16,8 +17,8 @@ const stages = [
   {
     service: 'Micropigmentación',
     sub: 'Labios definidos · Color permanente',
-    before: '/images/labios-pmu-2.png',
-    after: '/images/labios-pmu.jpg',
+    before: img('images/labios-pmu-2.png'),
+    after: img('images/labios-pmu.jpg'),
     beforePos: 'center center',
     afterPos: 'center center',
     stat: '100% natural',
@@ -27,8 +28,8 @@ const stages = [
   {
     service: 'Resultado Final',
     sub: 'Una sesión · Años de impacto',
-    before: '/images/cejas-antes-2.jpg',
-    after: '/images/cejas-despues-2.jpg',
+    before: img('images/cejas-antes-2.jpg'),
+    after: img('images/cejas-despues-2.jpg'),
     beforePos: 'center 20%',
     afterPos: 'center 20%',
     stat: '2–3 años',

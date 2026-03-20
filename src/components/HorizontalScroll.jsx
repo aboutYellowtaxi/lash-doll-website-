@@ -1,13 +1,14 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { img } from '../utils/img'
 
 const strips = [
-  { img: '/images/tools-pmu-pen.jpg',    label: 'Máquina PMU de precisión' },
-  { img: '/images/cejas-despues.jpg',    label: 'Microblading · Resultado' },
-  { img: '/images/tools-pigments.jpg',   label: 'Pigmentos certificados' },
-  { img: '/images/labios-pmu.jpg',       label: 'Micropigmentación de labios' },
-  { img: '/images/tools-caliper.jpg',    label: 'Diseño con calibre dorado' },
-  { img: '/images/lash-lifting.jpg',     label: 'Lash lifting · Detalle' },
+  { img: img('images/tools-pmu-pen.jpg'),    label: 'Máquina PMU de precisión' },
+  { img: img('images/cejas-despues.jpg'),    label: 'Microblading · Resultado' },
+  { img: img('images/tools-pigments.jpg'),   label: 'Pigmentos certificados' },
+  { img: img('images/labios-pmu.jpg'),       label: 'Micropigmentación de labios' },
+  { img: img('images/tools-caliper.jpg'),    label: 'Diseño con calibre dorado' },
+  { img: img('images/lash-lifting.jpg'),     label: 'Lash lifting · Detalle' },
 ]
 
 export default function HorizontalScroll() {

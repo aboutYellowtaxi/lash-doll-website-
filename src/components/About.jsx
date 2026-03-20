@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { img } from '../utils/img'
 
 const credentials = ['Artista PMU Certificada', 'Microblading Avanzado', 'PMU Labial']
 
@@ -25,7 +26,7 @@ export default function About() {
           }}
         >
           <img
-            src="/images/valeria.png"
+            src={img('images/valeria.png')}
             alt="Valeria Ambuca — Artista PMU"
             style={{
               width: '100%', height: '100%',
