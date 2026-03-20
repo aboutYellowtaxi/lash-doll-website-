@@ -2,39 +2,45 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { img } from '../utils/img'
 
+// Replace these 4 images with the ones generated in Nano Banana
+// (same face, same angle — base + each treatment applied)
+// Drop them in public/images/ with these exact names when ready:
+//   transform-base.jpg | transform-microblading.jpg | transform-lash-lifting.jpg | transform-lip-pmu.jpg
+const USE_GENERATED = false // flip to true once you drop the generated images in
+
 const stages = [
   {
     service: 'Microblading',
     sub: 'Pelo a pelo · Resultado natural',
-    before: img('images/cejas-antes.jpg'),
-    after: img('images/cejas-despues.jpg'),
+    before: USE_GENERATED ? img('images/transform-base.jpg') : img('images/before microblading v2.jpeg'),
+    after:  USE_GENERATED ? img('images/transform-microblading.jpg') : img('images/after microblading v2.jpeg'),
     beforePos: 'center top',
     afterPos: 'center top',
     stat: '12–18 meses',
     statLabel: 'duración sin retoque',
-    steps: ['Análisis facial', 'Diseño con calibre', 'Pigmentación'],
+    steps: ['Análisis facial', 'Diseño con calibre', 'Pigmentación pelo a pelo'],
   },
   {
-    service: 'Micropigmentación',
+    service: 'Lash Lifting',
+    sub: 'Rizadas y elevadas · Sin extensiones',
+    before: USE_GENERATED ? img('images/transform-base.jpg') : img('images/before microblading v2.jpeg'),
+    after:  USE_GENERATED ? img('images/transform-lash-lifting.jpg') : img('images/lash lifting 1.jpg'),
+    beforePos: 'center top',
+    afterPos: 'center center',
+    stat: '6–8 semanas',
+    statLabel: 'duración del efecto',
+    steps: ['Limpieza de pestañas', 'Rizado con varilla', 'Fijación y nutrición'],
+  },
+  {
+    service: 'Micropigmentación Labial',
     sub: 'Labios definidos · Color permanente',
-    before: img('images/labios-pmu-2.png'),
-    after: img('images/labios-pmu.jpg'),
-    beforePos: 'center center',
+    before: USE_GENERATED ? img('images/transform-base.jpg') : img('images/microblanding before.jpg'),
+    after:  USE_GENERATED ? img('images/transform-lip-pmu.jpg') : img('images/micropigmentacion labios.png'),
+    beforePos: 'center top',
     afterPos: 'center center',
     stat: '100% natural',
-    statLabel: 'sin cirugía',
-    steps: ['Diseño del contorno', 'Elección del tono', 'Aplicación'],
-  },
-  {
-    service: 'Resultado Final',
-    sub: 'Una sesión · Años de impacto',
-    before: img('images/cejas-antes-2.jpg'),
-    after: img('images/cejas-despues-2.jpg'),
-    beforePos: 'center 20%',
-    afterPos: 'center 20%',
-    stat: '2–3 años',
-    statLabel: 'con un retoque anual',
-    steps: ['Diseño', 'Técnica', 'Arte permanente'],
+    statLabel: 'sin cirugía ni relleno',
+    steps: ['Diseño del contorno', 'Elección del tono', 'Pigmentación degradé'],
   },
 ]
 
@@ -45,15 +51,15 @@ export default function TransformScroll() {
     offset: ['start start', 'end end'],
   })
 
-  // Smoother per-stage progress
-  const s0 = useTransform(scrollYProgress, [0, 0.4], [0, 1])
-  const s1 = useTransform(scrollYProgress, [0.33, 0.72], [0, 1])
-  const s2 = useTransform(scrollYProgress, [0.65, 1], [0, 1])
+  // Each stage gets 1/3 of the scroll, with smooth overlap
+  const s0 = useTransform(scrollYProgress, [0, 0.38], [0, 1])
+  const s1 = useTransform(scrollYProgress, [0.3, 0.68], [0, 1])
+  const s2 = useTransform(scrollYProgress, [0.62, 1], [0, 1])
 
-  // Crossfade opacities — quick overlap for smooth feel
-  const op0 = useTransform(scrollYProgress, [0, 0.36, 0.42], [1, 1, 0])
-  const op1 = useTransform(scrollYProgress, [0.3, 0.36, 0.68, 0.74], [0, 1, 1, 0])
-  const op2 = useTransform(scrollYProgress, [0.66, 0.72, 1], [0, 1, 1])
+  // Wider visible windows so each panel stays on screen longer
+  const op0 = useTransform(scrollYProgress, [0, 0.32, 0.38], [1, 1, 0])
+  const op1 = useTransform(scrollYProgress, [0.3, 0.36, 0.64, 0.70], [0, 1, 1, 0])
+  const op2 = useTransform(scrollYProgress, [0.62, 0.68, 1], [0, 1, 1])
 
   // Progress bar
   const barWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
@@ -61,7 +67,7 @@ export default function TransformScroll() {
   return (
     <section
       ref={containerRef}
-      style={{ height: '220vh', position: 'relative', background: 'var(--bg)' }}
+      style={{ height: '300vh', position: 'relative', background: 'var(--bg)' }}
     >
       <div style={{
         position: 'sticky', top: 0, height: '100vh',
@@ -117,9 +123,9 @@ export default function TransformScroll() {
 }
 
 function StagePanel({ stage, progress, opacity }) {
-  // Reveal line sweeps left→right
-  const clipRight = useTransform(progress, [0.05, 0.75], ['100%', '0%'])
-  const lineLeft  = useTransform(progress, [0.05, 0.75], ['0%', '100%'])
+  // Reveal line sweeps left→right — slower range = more scroll to complete
+  const clipRight = useTransform(progress, [0.08, 0.85], ['100%', '0%'])
+  const lineLeft  = useTransform(progress, [0.08, 0.85], ['0%', '100%'])
 
   // Text entries
   const headY  = useTransform(progress, [0, 0.18], [32, 0])
