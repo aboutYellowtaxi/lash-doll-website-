@@ -2,12 +2,12 @@ import { motion } from 'framer-motion'
 import { img } from '../utils/img'
 
 const cards = [
-  { label: 'Microblading · Pelo a pelo', img: img('images/result-cejas-mb-1.jpg'), pos: 'center center' },
-  { label: 'PMU de Labios · Lip Blush', img: img('images/result-labios-pmu-2.jpg'), pos: 'center center' },
-  { label: 'Microblading · Resultado natural', img: img('images/result-cejas-despues.jpg'), pos: 'center top' },
-  { label: 'Lash Lifting · Rizadas sin extensiones', img: img('images/result-lifting-1.jpg'), pos: 'center center' },
-  { label: 'Micropigmentación Labial', img: img('images/result-labios-pmu-1.jpg'), pos: 'center center' },
-  { label: 'Microblading · Arco perfecto', img: img('images/result-cejas-mb-2.jpg'), pos: 'center top' },
+  { label: 'Microblading · Antes y Después', img: img('images/cejas-antes-despues.webp'), pos: 'center center' },
+  { label: 'Micropigmentación Labial', img: img('images/micropigmentacion labios.png'), pos: 'center center' },
+  { label: 'Microblading · Resultado natural', img: img('images/after microblading v2.jpeg'), pos: 'center top' },
+  { label: 'Lash Lifting · Rizadas sin extensiones', img: img('images/lash lifting 1.jpg'), pos: 'center center' },
+  { label: 'Microblading · Arco perfecto', img: img('images/microblanding after.jpg'), pos: 'center top' },
+  { label: 'PMU de Labios · Lip Blush', img: img('images/labios-pmu.jpg'), pos: 'center center' },
 ]
 
 export default function Portfolio() {
