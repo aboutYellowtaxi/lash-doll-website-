@@ -50,18 +50,35 @@ export default function Hero() {
 
       <div style={{
         width: '100%', maxWidth: '1280px', margin: '0 auto',
-        display: 'grid', gridTemplateColumns: '1fr 420px',
+        display: 'grid', gridTemplateColumns: '1fr 440px',
         gap: '4rem', alignItems: 'center',
       }} className="hero-grid">
 
-        {/* Left: Typography — moves up on scroll */}
+        {/* Left: Typography */}
         <motion.div style={{ y: textY, opacity }}>
+
+          {/* Brand label */}
+          <motion.p
+            {...fadeUp(0)}
+            style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: '0.68rem',
+              letterSpacing: '0.3em',
+              textTransform: 'uppercase',
+              color: 'var(--accent)',
+              marginBottom: '1.8rem',
+            }}
+          >
+            Lash Doll Studio · General Rodríguez
+          </motion.p>
+
+          {/* Main headline */}
           <div style={{ overflow: 'hidden', lineHeight: 1 }}>
             <motion.h1
               custom={0} variants={wordVariant} initial="hidden" animate="visible"
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(5rem, 13vw, 10rem)',
+                fontSize: 'clamp(4rem, 10vw, 8rem)',
                 fontWeight: 400,
                 color: 'var(--bone)',
                 letterSpacing: '-0.02em',
@@ -69,16 +86,16 @@ export default function Hero() {
                 margin: 0,
               }}
             >
-              ARTE
+              Despertate
             </motion.h1>
           </div>
 
-          <div style={{ overflow: 'hidden', lineHeight: 1 }}>
+          <div style={{ overflow: 'hidden', lineHeight: 1, marginBottom: '0.15em' }}>
             <motion.div
               custom={1} variants={wordVariant} initial="hidden" animate="visible"
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(5rem, 13vw, 10rem)',
+                fontSize: 'clamp(4rem, 10vw, 8rem)',
                 fontWeight: 400,
                 letterSpacing: '-0.02em',
                 lineHeight: 1,
@@ -89,32 +106,24 @@ export default function Hero() {
                 animation: 'shimmer 3.5s linear infinite',
               }}
             >
-              PERMANENTE.
+              perfecta.
             </motion.div>
           </div>
 
-          <motion.p {...fadeUp(0.42)} style={{
+          {/* Service descriptor */}
+          <motion.p {...fadeUp(0.45)} style={{
             fontFamily: 'var(--font-body)',
-            fontSize: '0.78rem',
-            letterSpacing: '0.22em',
-            textTransform: 'uppercase',
-            color: 'rgba(240,237,232,0.5)',
-            marginTop: '1.5rem',
+            fontSize: '0.85rem',
+            color: 'rgba(240,237,232,0.55)',
+            lineHeight: 1.7,
+            marginTop: '1.8rem',
+            maxWidth: '420px',
           }}>
-            Microblading · Micropigmentación · PMU
-          </motion.p>
-          <motion.p {...fadeUp(0.52)} style={{
-            fontFamily: 'var(--font-body)',
-            fontSize: '0.72rem',
-            letterSpacing: '0.18em',
-            textTransform: 'uppercase',
-            color: 'var(--muted)',
-            marginTop: '0.35rem',
-          }}>
-            General Rodríguez · Buenos Aires
+            Microblading · PMU de Labios · Lash Lifting.<br />
+            Un procedimiento. Años de resultado natural.
           </motion.p>
 
-          <motion.div {...fadeUp(0.68)} style={{
+          <motion.div {...fadeUp(0.65)} style={{
             display: 'flex', gap: '1.5rem', alignItems: 'center', marginTop: '2.5rem', flexWrap: 'wrap',
           }}>
             <MagneticButton
@@ -127,7 +136,7 @@ export default function Hero() {
                 textTransform: 'uppercase',
                 color: 'var(--accent)',
                 border: '1px solid var(--accent)',
-                padding: '0.65rem 1.8rem',
+                padding: '0.75rem 2rem',
                 background: 'transparent',
                 transition: 'background 0.2s, color 0.2s',
                 display: 'inline-block',
@@ -135,13 +144,13 @@ export default function Hero() {
               onMouseEnter={e => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.color = 'var(--bg)' }}
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--accent)' }}
             >
-              Ver portfolio
+              Ver resultados
             </MagneticButton>
             <MagneticButton
               href="https://api.whatsapp.com/send?phone=541133436809"
               target="_blank"
               rel="noopener noreferrer"
-              data-cursor-label="CONSULTAR"
+              data-cursor-label="WA"
               style={{
                 fontFamily: 'var(--font-body)',
                 fontSize: '0.78rem',
@@ -150,19 +159,53 @@ export default function Hero() {
                 color: 'var(--bone)',
                 background: 'transparent',
                 border: 'none',
-                padding: '0.65rem 0',
+                padding: '0.75rem 0',
                 transition: 'color 0.2s',
                 display: 'inline-block',
               }}
               onMouseEnter={e => { e.currentTarget.style.color = 'var(--accent)' }}
               onMouseLeave={e => { e.currentTarget.style.color = 'var(--bone)' }}
             >
-              Consultá ahora →
+              Reservar turno →
             </MagneticButton>
+          </motion.div>
+
+          {/* Trust signals */}
+          <motion.div {...fadeUp(0.8)} style={{
+            display: 'flex', gap: '2rem', marginTop: '3rem',
+            borderTop: '1px solid rgba(212,175,55,0.1)', paddingTop: '1.5rem',
+            flexWrap: 'wrap',
+          }}>
+            {[
+              { num: '+6', label: 'años de experiencia' },
+              { num: '2–3', label: 'años de duración' },
+              { num: '★ 5.0', label: 'reseñas Google' },
+            ].map((s) => (
+              <div key={s.label}>
+                <div style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.4rem',
+                  fontWeight: 400,
+                  color: 'var(--bone)',
+                  lineHeight: 1,
+                }}>
+                  {s.num}
+                </div>
+                <div style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '0.65rem',
+                  color: 'var(--muted)',
+                  letterSpacing: '0.08em',
+                  marginTop: '0.2rem',
+                }}>
+                  {s.label}
+                </div>
+              </div>
+            ))}
           </motion.div>
         </motion.div>
 
-        {/* Right: Portrait — parallax slower */}
+        {/* Right: Portrait */}
         <motion.div
           style={{ y: imgY }}
           initial={{ opacity: 0, x: 40 }}
@@ -176,20 +219,31 @@ export default function Hero() {
             overflow: 'hidden',
           }}>
             <motion.img
-              src="/images/cejas-antes-despues.webp"
-              alt="Microblading — resultado natural"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              src="/images/hero-eyebrows.jpg"
+              alt="Microblading resultado natural — Lash Doll"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
               whileHover={{ scale: 1.04 }}
               transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             />
             <div style={{
               position: 'absolute', inset: 0,
-              background: 'linear-gradient(to top, rgba(8,8,8,0.55) 0%, transparent 55%)',
+              background: 'linear-gradient(to top, rgba(8,8,8,0.6) 0%, transparent 50%)',
             }} />
             <div style={{
               position: 'absolute', top: 0, left: 0, right: 0, height: '1px',
               background: 'linear-gradient(90deg, transparent, var(--accent), transparent)',
             }} />
+            {/* Service tag on image */}
+            <div style={{
+              position: 'absolute', bottom: '1.5rem', left: '1.5rem',
+              fontFamily: 'var(--font-body)',
+              fontSize: '0.6rem',
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: 'rgba(240,237,232,0.6)',
+            }}>
+              Microblading · Resultado natural
+            </div>
           </div>
         </motion.div>
       </div>

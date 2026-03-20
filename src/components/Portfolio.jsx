@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
 
 const cards = [
-  { label: 'Microblading · Antes / Después', img: '/images/cejas-antes-despues.webp' },
-  { label: 'Micropigmentación de Labios', img: '/images/labios-pmu.jpg' },
-  { label: 'Microblading · Resultado', img: '/images/cejas-despues.jpg' },
-  { label: 'Lash Lifting', img: '/images/lash-lifting.jpg' },
-  { label: 'Microblading', img: '/images/ig-valeria-work.jpg' },
-  { label: 'Micropigmentación · PMU', img: '/images/cejas-antes-despues.webp' },
+  { label: 'Microblading · Antes / Después', img: '/images/before and after microblanding 1.webp', pos: 'center center' },
+  { label: 'PMU de Labios', img: '/images/labios-pmu.jpg', pos: 'center center' },
+  { label: 'Microblading · Resultado', img: '/images/cejas-despues.jpg', pos: 'center top' },
+  { label: 'Lash Lifting', img: '/images/lash-lifting.jpg', pos: 'center center' },
+  { label: 'PMU · Micropigmentación Labial', img: '/images/lips-micropigmentation.jpg', pos: 'center center' },
+  { label: 'Microblading · Cejas perfectas', img: '/images/after microblading v2.jpeg', pos: 'center top' },
 ]
 
 export default function Portfolio() {
@@ -61,7 +61,8 @@ export default function Portfolio() {
                   style={{
                     position: 'absolute', inset: 0,
                     width: '100%', height: '100%', objectFit: 'cover',
-                    opacity: 0.75,
+                    objectPosition: card.pos || 'center',
+                    opacity: 0.85,
                   }}
                 />
               )}

@@ -11,7 +11,7 @@ export default function About() {
         gap: '5rem', alignItems: 'center',
       }} className="about-grid">
 
-        {/* Left: Portrait placeholder */}
+        {/* Left: Valeria's portrait */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -19,31 +19,51 @@ export default function About() {
           transition={{ duration: 0.7 }}
           style={{
             aspectRatio: '3/4',
-            background: 'linear-gradient(160deg, var(--surface2) 0%, #0D0D0D 100%)',
             border: '1px solid rgba(212,175,55,0.15)',
-            display: 'flex',
-            alignItems: 'flex-end',
-            padding: '1.5rem',
             position: 'relative',
             overflow: 'hidden',
           }}
         >
+          <img
+            src="/images/ig-valeria-work.jpg"
+            alt="Valeria Ambuca — Artista PMU"
+            style={{
+              width: '100%', height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center top',
+              display: 'block',
+            }}
+          />
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to top, rgba(8,8,8,0.65) 0%, transparent 55%)',
+          }} />
           <div style={{
             position: 'absolute', top: 0, left: 0, right: 0, height: '1px',
             background: 'linear-gradient(90deg, transparent, var(--accent), transparent)',
           }} />
           <div style={{
-            position: 'absolute', inset: 0,
-            background: 'radial-gradient(ellipse 70% 50% at 50% 35%, rgba(212,175,55,0.06) 0%, transparent 70%)',
-          }} />
-          <p style={{
-            fontFamily: 'var(--font-display)',
-            fontStyle: 'italic',
-            fontSize: '0.85rem',
-            color: 'rgba(212,175,55,0.4)',
+            position: 'absolute', bottom: '1.5rem', left: '1.5rem',
           }}>
-            Valeria Ambuca
-          </p>
+            <p style={{
+              fontFamily: 'var(--font-display)',
+              fontStyle: 'italic',
+              fontSize: '1rem',
+              color: 'var(--bone)',
+            }}>
+              Valeria Ambuca
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: '0.6rem',
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'rgba(212,175,55,0.7)',
+              marginTop: '0.2rem',
+            }}>
+              Artista PMU · Certificada
+            </p>
+          </div>
         </motion.div>
 
         {/* Right: Copy */}
