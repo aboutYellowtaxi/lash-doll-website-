@@ -163,33 +163,24 @@ export default function Hero() {
           transition={{ delay: 0.3, duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
           style={{
             aspectRatio: '3/4',
-            background: 'linear-gradient(160deg, #1A1A1A 0%, #0D0D0D 100%)',
             border: '1px solid rgba(212,175,55,0.15)',
-            display: 'flex',
-            alignItems: 'flex-end',
-            padding: '1.5rem',
             position: 'relative',
             overflow: 'hidden',
           }}
         >
-          {/* Shimmer accent */}
+          <img
+            src="/images/hero-eyebrows.jpg"
+            alt="Microblading artístico — cejas perfectas"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to top, rgba(8,8,8,0.6) 0%, transparent 50%)',
+          }} />
           <div style={{
             position: 'absolute', top: 0, left: 0, right: 0, height: '1px',
             background: 'linear-gradient(90deg, transparent, var(--accent), transparent)',
           }} />
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: 'radial-gradient(ellipse 80% 60% at 50% 30%, rgba(212,175,55,0.06) 0%, transparent 70%)',
-          }} />
-          <p style={{
-            fontFamily: 'var(--font-display)',
-            fontStyle: 'italic',
-            fontSize: '0.9rem',
-            color: 'rgba(212,175,55,0.5)',
-            letterSpacing: '0.06em',
-          }}>
-            Portfolio
-          </p>
         </motion.div>
       </div>
 

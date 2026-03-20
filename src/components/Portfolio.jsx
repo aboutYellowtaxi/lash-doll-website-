@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
 
 const cards = [
-  { label: 'Microblading · Antes / Después' },
-  { label: 'Micropigmentación Labial · Antes / Después' },
-  { label: 'Powder Brows · Antes / Después' },
-  { label: 'Microblading · Antes / Después' },
-  { label: 'Eyeliner Permanente · Antes / Después' },
-  { label: 'Micropigmentación Labial · Antes / Después' },
+  { label: 'Microblading · Cejas', img: '/images/hero-eyebrows.jpg' },
+  { label: 'Micropigmentación Labial', img: '/images/lips-micropigmentation.jpg' },
+  { label: 'Extensiones de Pestañas', img: '/images/lash-extensions.jpg' },
+  { label: 'Microblading · Antes / Después', img: null },
+  { label: 'PMU · Herramientas', img: '/images/pmu-tools.jpg' },
+  { label: 'Micropigmentación Labial · Antes / Después', img: null },
 ]
 
 export default function Portfolio() {
@@ -54,15 +54,28 @@ export default function Portfolio() {
               onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(212,175,55,0.4)' }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(212,175,55,0.08)' }}
             >
+              {card.img && (
+                <img
+                  src={card.img}
+                  alt={card.label}
+                  style={{
+                    position: 'absolute', inset: 0,
+                    width: '100%', height: '100%', objectFit: 'cover',
+                    opacity: 0.75,
+                  }}
+                />
+              )}
               <div style={{
                 position: 'absolute', inset: 0,
-                background: 'radial-gradient(ellipse 60% 40% at 50% 40%, rgba(212,175,55,0.05) 0%, transparent 70%)',
+                background: card.img
+                  ? 'linear-gradient(to top, rgba(8,8,8,0.7) 0%, transparent 55%)'
+                  : 'radial-gradient(ellipse 60% 40% at 50% 40%, rgba(212,175,55,0.05) 0%, transparent 70%)',
               }} />
               <p style={{
                 fontFamily: 'var(--font-display)',
                 fontStyle: 'italic',
                 fontSize: '0.78rem',
-                color: 'rgba(212,175,55,0.45)',
+                color: card.img ? 'rgba(240,237,232,0.7)' : 'rgba(212,175,55,0.45)',
                 letterSpacing: '0.04em',
                 position: 'relative',
               }}>
