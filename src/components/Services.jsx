@@ -1,41 +1,49 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import SpotlightCard from './SpotlightCard'
 
 const pmuServices = [
   {
     name: 'Microblading de Cejas',
-    desc: 'Diseño pelo a pelo con pigmentos premium. Resultado ultra natural que imita el vello real.',
+    desc: 'Diseño pelo a pelo con pigmentos premium. Resultado ultra natural que imita el vello real. Dura 12–18 meses.',
+    link: '/microblading',
   },
   {
     name: 'Micropigmentación de Labios',
-    desc: 'Definición y color permanente. Labios perfectos sin retoque diario.',
+    desc: 'Definición y color permanente. Corrige asimetría, aclara labios oscuros, dura 2–4 años.',
+    link: '/pmu-labios',
   },
   {
     name: 'Sombreado de Cejas',
-    desc: 'Powder brows: efecto maquillaje suave y duradero. Ideal para piel grasa.',
+    desc: 'Powder brows: efecto maquillaje suave y duradero. Ideal para piel grasa o mixta.',
+    link: '/microblading',
   },
   {
     name: 'Eyeliner Permanente',
     desc: 'Delineado superior o inferior de precisión. Mirada definida las 24 horas.',
+    link: null,
   },
 ]
 
 const lashServices = [
   {
     name: 'Extensiones Clásicas',
-    desc: 'Una extensión por pestaña natural. Look natural y elegante.',
+    desc: 'Una extensión por pestaña natural. Look sofisticado y elegante.',
+    link: null,
   },
   {
     name: 'Volumen Ruso',
     desc: 'Técnica de abanico para máximo volumen y densidad.',
+    link: null,
   },
   {
     name: 'Lifting de Pestañas',
-    desc: 'Riza y eleva tus pestañas naturales. Sin extensiones.',
+    desc: 'Riza y eleva tus pestañas naturales. Sin extensiones. Dura 6–8 semanas.',
+    link: '/lash-lifting',
   },
 ]
 
-function ServiceCard({ name, desc, index }) {
+function ServiceCard({ name, desc, index, link }) {
   return (
     <motion.div
       initial={{ y: 20, opacity: 0 }}
@@ -73,26 +81,47 @@ function ServiceCard({ name, desc, index }) {
         }}>
           {desc}
         </p>
-        <a
-          href="https://api.whatsapp.com/send?phone=541133436809"
-          target="_blank"
-          rel="noopener noreferrer"
-          data-cursor-label="WA"
-          style={{
-            fontFamily: 'var(--font-body)',
-            fontSize: '0.72rem',
-            letterSpacing: '0.16em',
-            textTransform: 'uppercase',
-            color: 'var(--accent)',
-            marginTop: '0.5rem',
-            cursor: 'none',
-            transition: 'opacity 0.2s',
-          }}
-          onMouseEnter={e => { e.currentTarget.style.opacity = '0.7' }}
-          onMouseLeave={e => { e.currentTarget.style.opacity = '1' }}
-        >
-          Consultá →
-        </a>
+        <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', marginTop: '0.5rem', flexWrap: 'wrap' }}>
+          {link && (
+            <Link
+              to={link}
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.72rem',
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: 'var(--bone)',
+                cursor: 'none',
+                transition: 'color 0.2s',
+                borderBottom: '1px solid rgba(240,237,232,0.2)',
+                paddingBottom: '1px',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.color = 'var(--accent)'; e.currentTarget.style.borderColor = 'var(--accent)' }}
+              onMouseLeave={e => { e.currentTarget.style.color = 'var(--bone)'; e.currentTarget.style.borderColor = 'rgba(240,237,232,0.2)' }}
+            >
+              Conocé más →
+            </Link>
+          )}
+          <a
+            href="https://api.whatsapp.com/send?phone=541133436809"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor-label="WA"
+            style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: '0.72rem',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: 'var(--accent)',
+              cursor: 'none',
+              transition: 'opacity 0.2s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.opacity = '0.7' }}
+            onMouseLeave={e => { e.currentTarget.style.opacity = '1' }}
+          >
+            Consultá
+          </a>
+        </div>
       </SpotlightCard>
     </motion.div>
   )
@@ -143,7 +172,7 @@ export default function Services() {
           marginBottom: '1px',
         }} className="services-pmu-grid">
           {pmuServices.map((s, i) => (
-            <ServiceCard key={s.name} {...s} index={i} />
+            <ServiceCard key={s.name} {...s} index={i} link={s.link} />
           ))}
         </div>
 
@@ -171,7 +200,7 @@ export default function Services() {
           background: 'rgba(212,175,55,0.06)',
         }} className="services-lash-grid">
           {lashServices.map((s, i) => (
-            <ServiceCard key={s.name} {...s} index={i + 4} />
+            <ServiceCard key={s.name} {...s} index={i + 4} link={s.link} />
           ))}
         </div>
       </div>

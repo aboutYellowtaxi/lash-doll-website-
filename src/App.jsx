@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import CustomCursor from './components/CustomCursor'
 import Navbar from './components/Navbar'
@@ -14,6 +15,9 @@ import ConsultationCTA from './components/ConsultationCTA'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import WhatsAppFAB from './components/WhatsAppFAB'
+import MicrobladingPage from './pages/MicrobladingPage'
+import PMULabiosPage from './pages/PMULabiosPage'
+import LashLiftingPage from './pages/LashLiftingPage'
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -45,7 +49,7 @@ const jsonLd = {
   sameAs: ['https://www.instagram.com/lash.doll.estetica/'],
 }
 
-export default function App() {
+function HomePage() {
   return (
     <>
       <Helmet>
@@ -67,8 +71,6 @@ export default function App() {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
-      <div className="grain-overlay" aria-hidden="true" />
-      <CustomCursor />
       <Navbar />
 
       <main>
@@ -87,6 +89,21 @@ export default function App() {
 
       <Footer />
       <WhatsAppFAB />
+    </>
+  )
+}
+
+export default function App() {
+  return (
+    <>
+      <CustomCursor />
+      <div className="grain-overlay" aria-hidden="true" />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/microblading" element={<MicrobladingPage />} />
+        <Route path="/pmu-labios" element={<PMULabiosPage />} />
+        <Route path="/lash-lifting" element={<LashLiftingPage />} />
+      </Routes>
     </>
   )
 }

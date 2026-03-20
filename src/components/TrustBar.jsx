@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 const services = [
   {
@@ -6,18 +7,21 @@ const services = [
     desc: 'Pelo a pelo · Resultado ultra natural',
     img: '/images/cejas-despues.jpg',
     pos: 'center top',
+    to: '/microblading',
   },
   {
     name: 'PMU de Labios',
     desc: 'Color permanente · Labios definidos',
     img: '/images/labios-pmu.jpg',
     pos: 'center center',
+    to: '/pmu-labios',
   },
   {
     name: 'Lash Lifting',
     desc: 'Rizadas y elevadas · Sin extensiones',
     img: '/images/lash-lifting.jpg',
     pos: 'center center',
+    to: '/lash-lifting',
   },
 ]
 
@@ -29,13 +33,9 @@ export default function TrustBar() {
       borderTop: '1px solid rgba(212,175,55,0.08)',
     }} className="services-strip">
       {services.map((s, i) => (
-        <motion.a
+        <Link
           key={s.name}
-          href="#servicios"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.1, duration: 0.6 }}
+          to={s.to}
           style={{
             position: 'relative',
             aspectRatio: '4/3',
@@ -101,7 +101,16 @@ export default function TrustBar() {
           }}>
             0{i + 1}
           </div>
-        </motion.a>
+          {/* "Conocé más" hover label */}
+          <div style={{
+            position: 'absolute', bottom: '1.5rem', right: '1.5rem',
+            fontFamily: 'var(--font-body)', fontSize: '0.6rem',
+            letterSpacing: '0.18em', textTransform: 'uppercase',
+            color: 'rgba(212,175,55,0.7)',
+          }}>
+            Conocé más →
+          </div>
+        </Link>
       ))}
 
       <style>{`
