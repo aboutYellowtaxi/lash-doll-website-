@@ -8,7 +8,7 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HelmetProvider>
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <BrowserRouter>
         <App />
       </BrowserRouter>
     </HelmetProvider>
