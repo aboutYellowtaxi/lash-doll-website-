@@ -5,8 +5,8 @@ const cards = [
   { label: 'Micropigmentación de Labios', img: '/images/labios-pmu.jpg' },
   { label: 'Microblading · Resultado', img: '/images/cejas-despues.jpg' },
   { label: 'Lash Lifting', img: '/images/lash-lifting.jpg' },
-  { label: 'Microblading · Antes', img: '/images/cejas-antes-2.jpg' },
-  { label: 'Micropigmentación · PMU', img: '/images/labios-pmu-2.png' },
+  { label: 'Microblading', img: '/images/ig-valeria-work.jpg' },
+  { label: 'Micropigmentación · PMU', img: '/images/cejas-antes-despues.webp' },
 ]
 
 export default function Portfolio() {

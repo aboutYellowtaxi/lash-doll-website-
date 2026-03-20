@@ -1,43 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-function AnimatedCounter({ target, suffix = '' }) {
-  const [count, setCount] = useState(0)
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
-
-  useEffect(() => {
-    if (!inView) return
-    const isDecimal = String(target).includes('.')
-    const duration = 1400
-    const steps = 60
-    const interval = duration / steps
-    let current = 0
-    const increment = target / steps
-    const timer = setInterval(() => {
-      current += increment
-      if (current >= target) {
-        setCount(target)
-        clearInterval(timer)
-      } else {
-        setCount(isDecimal ? parseFloat(current.toFixed(1)) : Math.floor(current))
-      }
-    }, interval)
-    return () => clearInterval(timer)
-  }, [inView, target])
-
-  return (
-    <span ref={ref}>
-      {typeof target === 'string' ? target : count}{suffix}
-    </span>
-  )
-}
-
-const stats = [
-  { display: null, raw: '2–3',  suffix: ' años', label: 'de duración promedio' },
-  { display: null, raw: '0',    suffix: ' dolor', label: 'con anestesia tópica', isText: 'Sin' },
-  { display: null, raw: '100',  suffix: '%', label: 'resultado a medida', isText: null },
-]
 
 export default function WhyPMU() {
   return (

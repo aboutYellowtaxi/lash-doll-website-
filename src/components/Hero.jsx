@@ -186,32 +186,26 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.div
-        style={{ opacity }}
+        style={{
+          opacity,
+          position: 'absolute', bottom: '2.5rem', left: '50%',
+          translateX: '-50%',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem',
+        }}
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
-        style2={{
-          position: 'absolute', bottom: '2.5rem', left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem',
-        }}
       >
+        <span style={{
+          fontFamily: 'var(--font-body)',
+          fontSize: '0.6rem',
+          letterSpacing: '0.24em',
+          textTransform: 'uppercase',
+          color: 'rgba(240,237,232,0.3)',
+        }}>scroll</span>
         <div style={{
-          position: 'absolute', bottom: '2.5rem', left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem',
-        }}>
-          <span style={{
-            fontFamily: 'var(--font-body)',
-            fontSize: '0.6rem',
-            letterSpacing: '0.24em',
-            textTransform: 'uppercase',
-            color: 'rgba(240,237,232,0.3)',
-          }}>scroll</span>
-          <div style={{
-            width: '1px', height: '40px',
-            background: 'linear-gradient(to bottom, rgba(212,175,55,0.6), transparent)',
-          }} />
-        </div>
+          width: '1px', height: '40px',
+          background: 'linear-gradient(to bottom, rgba(212,175,55,0.6), transparent)',
+        }} />
       </motion.div>
 
       <style>{`
