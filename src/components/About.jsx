@@ -25,12 +25,12 @@ export default function About() {
           }}
         >
           <img
-            src="/images/ig-valeria-work.jpg"
+            src="/images/valeria.jpg"
             alt="Valeria Ambuca — Artista PMU"
             style={{
               width: '100%', height: '100%',
               objectFit: 'cover',
-              objectPosition: 'center top',
+              objectPosition: 'center 15%',
               display: 'block',
             }}
           />
