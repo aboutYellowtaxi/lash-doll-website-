@@ -9,7 +9,7 @@ const data = {
     tag: 'Tratamiento de Pestañas',
     title: 'Lash Lifting',
     sub: 'Tus propias pestañas, rizadas y elevadas para siempre. Sin extensiones, sin adhesivos, sin mantenimiento diario.',
-    img: '/images/lash-lifting.jpg',
+    img: '/images/result-lifting-1.jpg',
     pos: 'center center',
     alt: 'Lash lifting resultado — Lash Doll',
   },
@@ -76,9 +76,9 @@ const data = {
   },
   results: {
     images: [
-      { src: '/images/lash-lifting.jpg', alt: 'Lash lifting · Resultado inmediato', pos: 'center center' },
-      { src: '/images/lash lifting 1.jpg', alt: 'Lifting de pestañas · Rizadas y definidas', pos: 'center center' },
-      { src: '/images/lash-extensions.jpg', alt: 'Pestañas levantadas · Efecto mascara natural', pos: 'center center' },
+      { src: '/images/result-lifting-1.jpg', alt: 'Lash lifting · Resultado inmediato', pos: 'center center' },
+      { src: '/images/result-lifting-2.jpg', alt: 'Lifting + tinte · Pestañas rizadas y definidas', pos: 'center center' },
+      { src: '/images/lash-lifting.jpg', alt: 'Lash lifting · Resultado real', pos: 'center center' },
     ],
     aftercare: [
       'No mojar las pestañas ni exponerlas a vapor durante las primeras 48 horas (esto incluye ducha de agua caliente, sauna, pileta)',

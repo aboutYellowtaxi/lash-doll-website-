@@ -9,8 +9,8 @@ const data = {
     tag: 'Maquillaje Permanente · Cejas',
     title: 'Microblading',
     sub: 'Trazos individuales que imitan el vello real. El resultado más natural del mercado — nadie va a notar que es permanente.',
-    img: '/images/after microblading v2.jpeg',
-    pos: 'center top',
+    img: '/images/result-cejas-mb-1.jpg',
+    pos: 'center center',
     alt: 'Microblading resultado natural — Lash Doll',
   },
   intro: {
@@ -77,9 +77,9 @@ const data = {
   },
   results: {
     images: [
-      { src: '/images/before and after microblanding 1.webp', alt: 'Microblading · Antes y después', pos: 'center center' },
-      { src: '/images/cejas-despues.jpg', alt: 'Microblading · Resultado natural', pos: 'center top' },
-      { src: '/images/after microblading v2.jpeg', alt: 'Microblading · Cejas pelo a pelo', pos: 'center top' },
+      { src: '/images/result-cejas-antes.jpg', alt: 'Microblading · Antes', pos: 'center center' },
+      { src: '/images/result-cejas-mb-1.jpg', alt: 'Microblading · Después, pelo a pelo', pos: 'center center' },
+      { src: '/images/result-cejas-despues.jpg', alt: 'Microblading · Resultado final', pos: 'center top' },
     ],
     aftercare: [
       'No mojar las cejas durante los primeros 10 días (ni en la ducha, ni transpirar en exceso)',

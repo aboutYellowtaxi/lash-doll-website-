@@ -9,7 +9,7 @@ const data = {
     tag: 'Maquillaje Permanente · Labios',
     title: 'PMU de Labios',
     sub: 'Labios definidos, con color y volumen visual — sin cirugía, sin relleno. Una sola sesión que dura años.',
-    img: '/images/labios-pmu.jpg',
+    img: '/images/result-labios-pmu-1.jpg',
     pos: 'center center',
     alt: 'PMU de labios resultado — Lash Doll',
   },
@@ -77,9 +77,9 @@ const data = {
   },
   results: {
     images: [
-      { src: '/images/labios-pmu.jpg', alt: 'PMU de labios · Resultado natural', pos: 'center center' },
-      { src: '/images/lips-micropigmentation.jpg', alt: 'Micropigmentación labial · Antes/Después', pos: 'center center' },
-      { src: '/images/labios-pmu-2.png', alt: 'PMU labios · Técnica acuarela', pos: 'center center' },
+      { src: '/images/result-labios-pmu-1.jpg', alt: 'PMU de labios · Contorno definido', pos: 'center center' },
+      { src: '/images/result-labios-pmu-2.jpg', alt: 'Lip Blush · Técnica acuarela', pos: 'center center' },
+      { src: '/images/labios-pmu.jpg', alt: 'Micropigmentación labial · Resultado real', pos: 'center center' },
     ],
     aftercare: [
       'No mojar los labios durante las primeras 24 horas (ni agua, ni bebidas con sorbete)',
