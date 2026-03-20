@@ -65,7 +65,7 @@ export default function Navbar() {
           </a>
         ))}
         <motion.a
-          href="https://wa.me/54XXXXXXXXXX"
+          href="https://api.whatsapp.com/send?phone=541133436809"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -124,7 +124,7 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a href="https://wa.me/54XXXXXXXXXX" target="_blank" rel="noopener noreferrer"
+            <a href="https://api.whatsapp.com/send?phone=541133436809" target="_blank" rel="noopener noreferrer"
               style={{ padding: '0.75rem', border: '1px solid var(--accent)', color: 'var(--accent)', textAlign: 'center', fontFamily: 'var(--font-body)', fontSize: '0.8rem', letterSpacing: '0.14em', textTransform: 'uppercase', cursor: 'auto' }}
               onClick={() => setMenuOpen(false)}>
               Reservar

@@ -51,7 +51,7 @@ export default function ConsultationCTA() {
           style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}
         >
           <a
-            href="https://wa.me/54XXXXXXXXXX"
+            href="https://api.whatsapp.com/send?phone=541133436809"
             target="_blank"
             rel="noopener noreferrer"
             style={{

@@ -113,7 +113,7 @@ export default function WhyPMU() {
           </p>
 
           <a
-            href="https://wa.me/54XXXXXXXXXX"
+            href="https://api.whatsapp.com/send?phone=541133436809"
             target="_blank"
             rel="noopener noreferrer"
             style={{

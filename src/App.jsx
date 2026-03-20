@@ -18,7 +18,7 @@ const jsonLd = {
   '@type': 'BeautySalon',
   name: 'Lash Doll®',
   description: 'Artista PMU en General Rodríguez. Microblading, micropigmentación de labios y extensiones de pestañas.',
-  telephone: '+54XXXXXXXXXX',
+  telephone: '+541133436809',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '2 de Abril 636',
