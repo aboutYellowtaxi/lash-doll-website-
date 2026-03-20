@@ -1,8 +1,10 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import MagneticButton from './MagneticButton'
 
 export default function Hero() {
   const ref = useRef(null)
+  const [mouse, setMouse] = useState({ x: 50, y: 50 })
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
 
   // Parallax layers
@@ -27,6 +29,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
+      onMouseMove={e => setMouse({ x: (e.clientX / window.innerWidth) * 100, y: (e.clientY / window.innerHeight) * 100 })}
       style={{
         minHeight: '100vh',
         display: 'flex',
@@ -38,13 +41,12 @@ export default function Hero() {
         background: 'var(--bg)',
       }}
     >
-      {/* Ambient gradient — parallax */}
-      <motion.div style={{ y: textY, position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse 70% 60% at 70% 50%, rgba(212,175,55,0.05) 0%, transparent 70%)',
-        }} />
-      </motion.div>
+      {/* Mouse-tracking ambient glow */}
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: `radial-gradient(ellipse 55% 50% at ${mouse.x}% ${mouse.y}%, rgba(212,175,55,0.055) 0%, transparent 70%)`,
+        transition: 'background 0.6s ease',
+      }} />
 
       <div style={{
         width: '100%', maxWidth: '1280px', margin: '0 auto',
@@ -78,9 +80,13 @@ export default function Hero() {
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(5rem, 13vw, 10rem)',
                 fontWeight: 400,
-                color: 'var(--accent)',
                 letterSpacing: '-0.02em',
                 lineHeight: 1,
+                background: 'linear-gradient(90deg, #D4AF37 0%, #F5E27A 40%, #D4AF37 60%, #A0832A 100%)',
+                backgroundSize: '200% auto',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                animation: 'shimmer 3.5s linear infinite',
               }}
             >
               PERMANENTE.
@@ -109,9 +115,9 @@ export default function Hero() {
           </motion.p>
 
           <motion.div {...fadeUp(0.68)} style={{
-            display: 'flex', gap: '2rem', alignItems: 'center', marginTop: '2.5rem', flexWrap: 'wrap',
+            display: 'flex', gap: '1.5rem', alignItems: 'center', marginTop: '2.5rem', flexWrap: 'wrap',
           }}>
-            <a
+            <MagneticButton
               href="#portfolio"
               data-cursor-label="VER"
               style={{
@@ -121,16 +127,17 @@ export default function Hero() {
                 textTransform: 'uppercase',
                 color: 'var(--accent)',
                 border: '1px solid var(--accent)',
-                padding: '0.6rem 1.6rem',
+                padding: '0.65rem 1.8rem',
+                background: 'transparent',
                 transition: 'background 0.2s, color 0.2s',
-                cursor: 'none',
+                display: 'inline-block',
               }}
               onMouseEnter={e => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.color = 'var(--bg)' }}
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--accent)' }}
             >
               Ver portfolio
-            </a>
-            <a
+            </MagneticButton>
+            <MagneticButton
               href="https://api.whatsapp.com/send?phone=541133436809"
               target="_blank"
               rel="noopener noreferrer"
@@ -141,14 +148,17 @@ export default function Hero() {
                 letterSpacing: '0.16em',
                 textTransform: 'uppercase',
                 color: 'var(--bone)',
-                cursor: 'none',
+                background: 'transparent',
+                border: 'none',
+                padding: '0.65rem 0',
                 transition: 'color 0.2s',
+                display: 'inline-block',
               }}
               onMouseEnter={e => { e.currentTarget.style.color = 'var(--accent)' }}
               onMouseLeave={e => { e.currentTarget.style.color = 'var(--bone)' }}
             >
               Consultá ahora →
-            </a>
+            </MagneticButton>
           </motion.div>
         </motion.div>
 

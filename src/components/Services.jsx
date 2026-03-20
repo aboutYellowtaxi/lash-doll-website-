@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import SpotlightCard from './SpotlightCard'
 
 const pmuServices = [
   {
@@ -41,7 +42,8 @@ function ServiceCard({ name, desc, index }) {
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-      style={{
+    >
+      <SpotlightCard style={{
         background: 'var(--surface)',
         borderTop: '1px solid var(--accent)',
         borderLeft: '1px solid rgba(212,175,55,0.1)',
@@ -51,48 +53,47 @@ function ServiceCard({ name, desc, index }) {
         display: 'flex',
         flexDirection: 'column',
         gap: '0.6rem',
-        transition: 'background 0.2s',
-        cursor: 'default',
-      }}
-      whileHover={{ backgroundColor: 'rgba(26,26,26,1)' }}
-    >
-      <h3 style={{
-        fontFamily: 'var(--font-display)',
-        fontSize: '1.2rem',
-        fontWeight: 400,
-        color: 'var(--bone)',
-        letterSpacing: '0.02em',
+        height: '100%',
       }}>
-        {name}
-      </h3>
-      <p style={{
-        fontFamily: 'var(--font-body)',
-        fontSize: '0.8rem',
-        color: 'var(--muted)',
-        lineHeight: 1.6,
-        flex: 1,
-      }}>
-        {desc}
-      </p>
-      <a
-        href="https://api.whatsapp.com/send?phone=541133436809"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
+        <h3 style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: '1.2rem',
+          fontWeight: 400,
+          color: 'var(--bone)',
+          letterSpacing: '0.02em',
+        }}>
+          {name}
+        </h3>
+        <p style={{
           fontFamily: 'var(--font-body)',
-          fontSize: '0.72rem',
-          letterSpacing: '0.16em',
-          textTransform: 'uppercase',
-          color: 'var(--accent)',
-          marginTop: '0.5rem',
-          cursor: 'none',
-          transition: 'opacity 0.2s',
-        }}
-        onMouseEnter={e => { e.currentTarget.style.opacity = '0.7' }}
-        onMouseLeave={e => { e.currentTarget.style.opacity = '1' }}
-      >
-        Consultá →
-      </a>
+          fontSize: '0.8rem',
+          color: 'var(--muted)',
+          lineHeight: 1.6,
+          flex: 1,
+        }}>
+          {desc}
+        </p>
+        <a
+          href="https://api.whatsapp.com/send?phone=541133436809"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cursor-label="WA"
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: '0.72rem',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            color: 'var(--accent)',
+            marginTop: '0.5rem',
+            cursor: 'none',
+            transition: 'opacity 0.2s',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.opacity = '0.7' }}
+          onMouseLeave={e => { e.currentTarget.style.opacity = '1' }}
+        >
+          Consultá →
+        </a>
+      </SpotlightCard>
     </motion.div>
   )
 }

@@ -74,10 +74,10 @@ export default function App() {
       <main>
         <Hero />
         <TrustBar />
+        <TransformScroll />
         <Services />
         <WhyPMU />
         <Portfolio />
-        <TransformScroll />
         <VideoReel />
         <About />
         <Testimonials />

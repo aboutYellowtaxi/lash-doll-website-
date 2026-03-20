@@ -38,7 +38,7 @@ export default function WhyPMU() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
             {[
               { value: '2–3 años', label: 'de duración promedio', num: null },
-              { value: null, label: 'con anestesia tópica', num: 0, prefix: 'Sin', suffix: ' dolor' },
+              { value: 'Sin dolor', label: 'con anestesia tópica', num: null },
               { value: null, label: 'resultado a medida', num: 100, prefix: '', suffix: '% natural' },
             ].map((s, i) => (
               <motion.div
