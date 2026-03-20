@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
 
 const cards = [
-  { label: 'Microblading · Cejas', img: '/images/hero-eyebrows.jpg' },
-  { label: 'Micropigmentación Labial', img: '/images/lips-micropigmentation.jpg' },
-  { label: 'Extensiones de Pestañas', img: '/images/lash-extensions.jpg' },
-  { label: 'Microblading · Antes / Después', img: null },
-  { label: 'PMU · Herramientas', img: '/images/pmu-tools.jpg' },
-  { label: 'Micropigmentación Labial · Antes / Después', img: null },
+  { label: 'Microblading · Antes / Después', img: '/images/cejas-antes-despues.webp' },
+  { label: 'Micropigmentación de Labios', img: '/images/labios-pmu.jpg' },
+  { label: 'Microblading · Resultado', img: '/images/cejas-despues.jpg' },
+  { label: 'Lash Lifting', img: '/images/lash-lifting.jpg' },
+  { label: 'Microblading · Antes', img: '/images/cejas-antes-2.jpg' },
+  { label: 'Micropigmentación · PMU', img: '/images/labios-pmu-2.png' },
 ]
 
 export default function Portfolio() {

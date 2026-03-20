@@ -169,7 +169,7 @@ export default function Hero() {
           }}
         >
           <img
-            src="/images/hero-eyebrows.jpg"
+            src="/images/cejas-antes-despues.webp"
             alt="Microblading artístico — cejas perfectas"
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           />

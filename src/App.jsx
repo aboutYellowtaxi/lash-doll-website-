@@ -6,6 +6,7 @@ import TrustBar from './components/TrustBar'
 import Services from './components/Services'
 import WhyPMU from './components/WhyPMU'
 import Portfolio from './components/Portfolio'
+import VideoReel from './components/VideoReel'
 import About from './components/About'
 import Testimonials from './components/Testimonials'
 import ConsultationCTA from './components/ConsultationCTA'
@@ -52,6 +53,7 @@ export default function App() {
         <Services />
         <WhyPMU />
         <Portfolio />
+        <VideoReel />
         <About />
         <Testimonials />
         <ConsultationCTA />
