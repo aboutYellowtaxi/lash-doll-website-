@@ -15,7 +15,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.7 }}
           style={{
             aspectRatio: '3/4',
@@ -70,7 +70,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}
         >
           <p style={{
