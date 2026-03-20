@@ -97,3 +97,89 @@ a { color: inherit; text-decoration: none; }
   0%   { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
 }
+
+/* ── Mobile touch feedback ── */
+@media (max-width: 768px) {
+  a, button { cursor: pointer !important; }
+}
+
+/* ── WhatsApp sticky bottom bar (mobile) ── */
+.wa-mobile-bar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--accent);
+  color: var(--bg);
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  z-index: 9990;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.wa-desktop-fab {
+  position: fixed;
+  bottom: 2rem; right: 2rem;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9990;
+  box-shadow: 0 4px 20px rgba(212,175,55,0.35);
+  color: white;
+}
+@media (max-width: 768px) {
+  .wa-mobile-bar { display: flex; }
+  .wa-desktop-fab { display: none !important; }
+  /* Add bottom padding so content doesn't hide behind bar */
+  footer, main > *:last-child { padding-bottom: 5rem; }
+}
+
+/* ── Hero mobile ── */
+@media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .hero-image-col { display: none !important; }
+  .hero-cta-group {
+    flex-direction: column !important;
+    width: 100%;
+  }
+  .hero-cta-group a {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    min-height: 52px !important;
+    display: flex !important;
+    align-items: center !important;
+    border: 1px solid var(--accent) !important;
+    padding: 0.9rem 1rem !important;
+  }
+}
+
+/* ── TransformScroll mobile ── */
+@media (max-width: 768px) {
+  .transform-section { height: 200vh !important; }
+  .transform-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+    align-items: center !important;
+    justify-items: center !important;
+  }
+  .transform-left {
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+  .transform-left h2 { font-size: clamp(1.6rem, 7vw, 2.2rem) !important; }
+  .transform-center {
+    width: min(75vw, 260px) !important;
+    aspect-ratio: 3/4;
+  }
+  .transform-right { display: none !important; }
+}

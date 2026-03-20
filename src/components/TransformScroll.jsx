@@ -67,6 +67,7 @@ export default function TransformScroll() {
   return (
     <section
       ref={containerRef}
+      className="transform-section"
       style={{ height: '300vh', position: 'relative', background: 'var(--bg)' }}
     >
       <div style={{
@@ -154,7 +155,7 @@ function StagePanel({ stage, progress, opacity }) {
       }} className="transform-grid">
 
         {/* Left */}
-        <motion.div style={{ y: headY, opacity: headOp }}>
+        <motion.div className="transform-left" style={{ y: headY, opacity: headOp }}>
           <p style={{
             fontFamily: 'var(--font-body)', fontSize: '0.62rem',
             letterSpacing: '0.26em', textTransform: 'uppercase',
@@ -191,7 +192,7 @@ function StagePanel({ stage, progress, opacity }) {
         </motion.div>
 
         {/* Center: before/after image */}
-        <div style={{
+        <div className="transform-center" style={{
           aspectRatio: '3/4', position: 'relative',
           border: '1px solid rgba(212,175,55,0.18)', overflow: 'hidden',
         }}>
@@ -247,7 +248,7 @@ function StagePanel({ stage, progress, opacity }) {
         </div>
 
         {/* Right: steps */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.4rem' }}>
+        <div className="transform-right" style={{ display: 'flex', flexDirection: 'column', gap: '1.4rem' }}>
           <p style={{
             fontFamily: 'var(--font-body)', fontSize: '0.58rem',
             letterSpacing: '0.22em', textTransform: 'uppercase',

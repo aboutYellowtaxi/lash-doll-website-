@@ -79,7 +79,7 @@ export default function Hero() {
               custom={0} variants={wordVariant} initial="hidden" animate="visible"
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(4rem, 10vw, 8rem)',
+                fontSize: 'clamp(2.8rem, 10vw, 8rem)',
                 fontWeight: 400,
                 color: 'var(--bone)',
                 letterSpacing: '-0.02em',
@@ -96,7 +96,7 @@ export default function Hero() {
               custom={1} variants={wordVariant} initial="hidden" animate="visible"
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(4rem, 10vw, 8rem)',
+                fontSize: 'clamp(2.8rem, 10vw, 8rem)',
                 fontWeight: 400,
                 letterSpacing: '-0.02em',
                 lineHeight: 1,
@@ -124,8 +124,8 @@ export default function Hero() {
             Un procedimiento. Años de resultado natural.
           </motion.p>
 
-          <motion.div {...fadeUp(0.65)} style={{
-            display: 'flex', gap: '1.5rem', alignItems: 'center', marginTop: '2.5rem', flexWrap: 'wrap',
+          <motion.div {...fadeUp(0.65)} className="hero-cta-group" style={{
+            display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '2.5rem', flexWrap: 'wrap',
           }}>
             <MagneticButton
               href="#portfolio"
@@ -208,6 +208,7 @@ export default function Hero() {
 
         {/* Right: Portrait */}
         <motion.div
+          className="hero-image-col"
           style={{ y: imgY }}
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}

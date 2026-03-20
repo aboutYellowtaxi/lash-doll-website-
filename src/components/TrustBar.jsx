@@ -119,6 +119,26 @@ export default function TrustBar() {
           .services-strip { grid-template-columns: 1fr !important; }
           .services-strip a { aspect-ratio: 16/9 !important; border-right: none !important; border-bottom: 1px solid rgba(212,175,55,0.08); }
         }
+        /* Pulse hint on mobile to signal tap */
+        @media (max-width: 768px) {
+          .services-strip a::after {
+            content: 'Tocá para ver';
+            position: absolute;
+            bottom: 1.5rem; right: 1.5rem;
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(212,175,55,0.9);
+            background: rgba(8,8,8,0.5);
+            padding: 0.3rem 0.7rem;
+            animation: tapPulse 2.5s ease-in-out infinite;
+          }
+        }
+        @keyframes tapPulse {
+          0%, 100% { opacity: 0.5; }
+          50% { opacity: 1; }
+        }
       `}</style>
     </section>
   )
